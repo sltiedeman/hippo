@@ -1,2 +1,3 @@
 .sass-cache/*
 inc/db_connect.php
+*.scssc
