@@ -8,13 +8,19 @@
     $email = $_POST['email'];
     $name = $_POST['name'];
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-    //Check to see if the passwords match
+    //Check to see if the email already exists
+    $result2 = DB::query("SELECT * FROM users WHERE email=%s", $email);
+    if($result2){
+        header ('Location: /register.php?error=emailexists');
+        exit;
+    }
+
 
     //Check to see if the username already exists
     $result = DB::query("SELECT * FROM users WHERE username=%s", $username);
     if(!$result){
         $canRegister = true;
-        $_SESSION['username'] = $_POST['username'];
+        // $_SESSION['username'] = $_POST['username'];
     }else{
         $canRegister = false;
     }
@@ -28,15 +34,19 @@
             ));
             $_SESSION['username'] = $username; // $_SESSION is a cookie that is around as long as the browser is open.
             $_SESSION['uid'] = DB:: insertId(); // This will get the last auto-incremented id that was inserted into the database.
-            header('Location: index.php');  
+            header('Location: index.php');
+            exit; 
         }catch(MeekroDBException $e){
             header('Location: /register.php?error=yes');
+            exit;
         }
     }else{    
         header('Location: /register.php?error=usernameexists');
+        exit;
     }
     if($password != $password2){
         header('Location: /register.php?error=nomatch');
+        exit;
     }
 
 

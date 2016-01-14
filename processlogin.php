@@ -12,14 +12,14 @@
             $passwordVerify = password_verify($password, $hash);
         }
     }catch(MeekroDBException $e){
-        header('Location: /login.php?erro=yes');
+        header('Location: /login.php?error=yes');
     }
     if($passwordVerify){
         $_SESSION['username'] = $username; 
         $_SESSION['uid'] = $uid; 
         header('Location: index.php');
     }else{
-        print "You are not in the database.";
+        header('Location: /login.php?error=nomatch');
     }
 
 ?>

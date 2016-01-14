@@ -2,7 +2,9 @@
 	include('inc/db_connect.php');
 	$_SESSION['page'] = 'register';
 	$error = $_GET['error'];
-	if($error=='usernameexists'){
+	if($error=='emailexists'){
+		$emailExists = true;
+	}else if($error=='usernameexists'){
 		$userExists = true;
 	}else if($error=='nomatch'){
 		$noMatch = true;
@@ -41,15 +43,18 @@
 							}else{
 								print '<input type="email" class="form-control" placeholder="johndoe@gmail.com" name="email" required>';
 							}
+							if($emailExists){
+								print "<span class='error'>A user with this email is already registered</span>";
+							}
 						?>
 					</div>
 					<div class="form-group">
 						<label>User Name</label>
 						<?php
 							if($_SESSION['username']){
-								print "<input type='text' class='form-control' value='" . $_SESSION['username'] . "' name='username' required>";
+								print "<input type='text' class='form-control' value='" . $_SESSION['username'] . "' name='username' maxlength='11' required>";
 							}else{
-								print '<input type="text" class="form-control" placeholder="johndoe123" name="username" required>';
+								print '<input type="text" class="form-control" placeholder="johndoe123" name="username" maxlength="11" required>';
 							}
 							if($userExists){
 								print "<span class='error'>User name already exists</span>";

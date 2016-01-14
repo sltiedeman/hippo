@@ -1,6 +1,10 @@
 <?php
 	include('inc/db_connect.php');
 	$_SESSION['page'] = 'login';
+	$errorExists = $_GET['error'];
+	if($errorExists == 'nomatch'){
+		$noMatch = true;
+	}
 ?>
 
 <!DOCTYPE html>
@@ -16,13 +20,18 @@
 			<div class="login">
 				<h2 id="login-heading">Login</h2>
 				<form method='post' action='processlogin.php'>
+					<?php
+						if($noMatch){
+							print "<p class='error' style='text-align: center'>Username or password is incorrect</p>";
+						}
+					?>
 					<div class="form-group">
 						<label>User Name</label>
-						<input type="text" class="form-control" placeholder="johndoe123" name="username">
+						<input type="text" class="form-control" placeholder="johndoe123" name="username" maxlength="11" required>
 					</div>
 					<div class="form-group">
 						<label>Password</label>
-						<input type="password" class="form-control" placeholder="At least 6 digits, letters and numbers" name="password">
+						<input type="password" class="form-control" placeholder="At least 6 digits, letters and numbers" name="password" required>
 					</div>	
 					<div class="button-holder">
 						<button type="submit" class="btn btn-primary">Submit</button>
