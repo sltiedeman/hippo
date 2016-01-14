@@ -7,14 +7,14 @@
 				'uid'=> $_SESSION['uid'],
 				'content'=> $content
 			));
-			header('Location: posts.php?success=yes');
+			header('Location: index.php?success=yes');
 			exit;
 		}catch(MeekroDBException $e){
 			header('Location: /posts.php?error=yes');
 			exit;
 		}
 	}else{
-		header('Location: /posts.php?error=mustlogin');
+		header('Location: /index.php?error=mustlogin');
 		exit;
 	}
 

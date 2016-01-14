@@ -7,93 +7,146 @@
 
 /* line 11, ../compass/sass/style.scss */
 #header {
-  background-color: #c3c3c3;
+  background-color: black;
   height: 84px;
+  color: #c3c3c3;
 }
-/* line 14, ../compass/sass/style.scss */
+/* line 15, ../compass/sass/style.scss */
 #header #float-left {
   float: left;
   width: 50%;
 }
-/* line 17, ../compass/sass/style.scss */
+/* line 18, ../compass/sass/style.scss */
 #header #float-left button {
   margin: 20px;
 }
-/* line 21, ../compass/sass/style.scss */
+/* line 22, ../compass/sass/style.scss */
 #header #float-right {
   float: right;
   width: 50%;
   text-align: right;
 }
-/* line 24, ../compass/sass/style.scss */
+/* line 25, ../compass/sass/style.scss */
 #header #float-right button {
   margin: 20px;
 }
 
 /* line 33, ../compass/sass/style.scss */
+#index-wrapper {
+  margin-bottom: 40px;
+}
+/* line 35, ../compass/sass/style.scss */
 #index-wrapper #hero-image {
   background-image: url("../img/hippo.jpg");
   height: 600px;
   background-size: cover;
 }
-/* line 37, ../compass/sass/style.scss */
+/* line 39, ../compass/sass/style.scss */
 #index-wrapper #hero-image #hero-text {
   padding-top: 250px;
   text-align: center;
   font-size: 96px;
   color: white;
+  margin-top: 0px;
+}
+/* line 47, ../compass/sass/style.scss */
+#index-wrapper #posts {
+  width: 50%;
+  margin: auto;
+}
+/* line 50, ../compass/sass/style.scss */
+#index-wrapper #posts #posts-left {
+  float: left;
+  width: 75%;
+  height: 80px;
+}
+/* line 55, ../compass/sass/style.scss */
+#index-wrapper #posts #posts-right {
+  float: right;
+  text-align: right;
+  width: 25%;
+  height: 80px;
+}
+/* line 60, ../compass/sass/style.scss */
+#index-wrapper #posts #posts-right span.glyphicon {
+  font-size: 24px;
+  margin-top: 20px;
+}
+/* line 65, ../compass/sass/style.scss */
+#index-wrapper #posts #make-post {
+  visibility: hidden;
+  transition: height .3s;
+  height: 0px;
+}
+/* line 69, ../compass/sass/style.scss */
+#index-wrapper #posts #make-post button {
+  margin-top: 20px;
+}
+/* line 74, ../compass/sass/style.scss */
+#index-wrapper #posts #make-post.active {
+  height: 300px;
+  transition: height .3s;
+}
+/* line 79, ../compass/sass/style.scss */
+#index-wrapper #posts .post {
+  overflow: hidden;
+  clear: all;
+  background-color: #e6e6e6;
+  margin: 20px;
+  padding: 20px;
+  color: #009999;
 }
 
-/* line 47, ../compass/sass/style.scss */
+/* line 91, ../compass/sass/style.scss */
 #register-wrapper, #login-wrapper {
   margin-bottom: 40px;
   padding: 20px;
 }
-/* line 50, ../compass/sass/style.scss */
+/* line 94, ../compass/sass/style.scss */
 #register-wrapper .error, #login-wrapper .error {
   color: red;
 }
-/* line 53, ../compass/sass/style.scss */
+/* line 97, ../compass/sass/style.scss */
 #register-wrapper #heading, #login-wrapper #heading {
   text-align: center;
   color: #001966;
   margin-bottom: 40px;
 }
-/* line 58, ../compass/sass/style.scss */
+/* line 102, ../compass/sass/style.scss */
 #register-wrapper .register, #register-wrapper .login, #login-wrapper .register, #login-wrapper .login {
   background-color: #e6e6e6;
   padding: 40px;
   width: 40%;
   margin: auto;
 }
-/* line 63, ../compass/sass/style.scss */
+/* line 107, ../compass/sass/style.scss */
 #register-wrapper .register h2, #register-wrapper .login h2, #login-wrapper .register h2, #login-wrapper .login h2 {
   font-size: 36px;
   color: #001966;
 }
-/* line 67, ../compass/sass/style.scss */
+/* line 111, ../compass/sass/style.scss */
 #register-wrapper .register #register-heading, #register-wrapper .register #login-heading, #register-wrapper .login #register-heading, #register-wrapper .login #login-heading, #login-wrapper .register #register-heading, #login-wrapper .register #login-heading, #login-wrapper .login #register-heading, #login-wrapper .login #login-heading {
   text-align: center;
 }
-/* line 70, ../compass/sass/style.scss */
+/* line 114, ../compass/sass/style.scss */
 #register-wrapper .register .button-holder, #register-wrapper .login .button-holder, #login-wrapper .register .button-holder, #login-wrapper .login .button-holder {
   text-align: center;
 }
-/* line 72, ../compass/sass/style.scss */
+/* line 116, ../compass/sass/style.scss */
 #register-wrapper .register .button-holder button, #register-wrapper .login .button-holder button, #login-wrapper .register .button-holder button, #login-wrapper .login .button-holder button {
   margin-top: 20px;
   width: 50%;
 }
 
-/* line 81, ../compass/sass/style.scss */
+/* line 125, ../compass/sass/style.scss */
 #posts-wrapper {
   margin-top: 40px;
 }
 
-/* line 86, ../compass/sass/style.scss */
+/* line 130, ../compass/sass/style.scss */
 #footer-wrapper {
   height: 84px;
-  background-color: #c3c3c3;
+  background-color: black;
   position: absolute;
   bottom: 0;
   width: 100%;

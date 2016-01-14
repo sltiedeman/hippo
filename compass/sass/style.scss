@@ -9,8 +9,9 @@
 
 //Styling for header for all pages
 #header{
-	background-color: #c3c3c3;
+	background-color: black;
 	height: 84px;
+	color: #c3c3c3;
 	#float-left{
 		float: left;
 		width: 50%;
@@ -30,6 +31,7 @@
 
 //Styling for Home Page
 #index-wrapper{
+	margin-bottom: 40px;
 	#hero-image{
 		background-image: url('../img/hippo.jpg');
 		height: 600px;
@@ -39,6 +41,48 @@
 			text-align: center;
 			font-size: 96px;
 			color: white;
+			margin-top: 0px;
+		}
+	}
+	#posts{
+		width: 50%;
+		margin: auto;
+		#posts-left{
+			float: left;
+			width: 75%;
+			height: 80px;
+		}
+		#posts-right{
+			float: right;
+			text-align: right;
+			width: 25%;
+			height: 80px;
+			span.glyphicon{
+				font-size: 24px;
+				margin-top: 20px;
+			}
+		}
+		#make-post{
+			visibility: hidden;
+			transition: height .3s;
+			height: 0px;
+			button{
+				margin-top: 20px;
+			}
+		}
+
+		#make-post.active{
+			height: 300px;
+			transition: height .3s;		
+		}
+
+		.post{
+			overflow: hidden;
+			clear: all;
+			background-color: #e6e6e6;
+			margin: 20px;
+			padding: 20px;
+			color: #009999;
 		}
 	}
 }
@@ -85,7 +129,7 @@
 //Styling for Footer
 #footer-wrapper{
 	height: 84px;
-	background-color: #c3c3c3;
+	background-color: black;
 	position: absolute;
 	bottom: 0;
 	width: 100%;
