@@ -28,6 +28,21 @@
 	}
 }
 
+//Styling for Home Page
+#index-wrapper{
+	#hero-image{
+		background-image: url('../img/hippo.jpg');
+		height: 600px;
+		background-size: cover;
+		#hero-text{
+			padding-top: 250px;
+			text-align: center;
+			font-size: 96px;
+			color: white;
+		}
+	}
+}
+
 // Styling for Register Page
 #register-wrapper, #login-wrapper{
 	margin-bottom: 40px;
@@ -60,6 +75,11 @@
 			}
 		}
 	}
+}
+
+//Styling for posts
+#posts-wrapper{
+	margin-top: 40px;
 }
 
 //Styling for Footer

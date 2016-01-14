@@ -15,6 +15,5 @@
 				print ' <a href="login.php"><button class="btn btn-success btn-lg">Login</button></a> ';
 			}
 		?>
-		<!-- <a href="login.php"><button class="btn btn-success btn-lg">Login</button></a> -->
 	</div>
 </div>
