@@ -1,2 +1,74 @@
 @import "vars";
 @import "base";
+
+#total-wrapper{
+	position: relative;
+	min-height: 100vh;
+	padding-bottom: 80px;
+}
+
+//Styling for header for all pages
+#header{
+	background-color: #c3c3c3;
+	height: 84px;
+	#float-left{
+		float: left;
+		width: 50%;
+		button{
+			margin: 20px;
+		}
+	}
+	#float-right{
+		float: right;
+		width: 50%;
+		button{
+			margin: 20px;
+		}
+		text-align: right;
+	}
+}
+
+// Styling for Register Page
+#register-wrapper, #login-wrapper{
+	margin-bottom: 40px;
+	padding: 20px;
+	.error{
+		color: red;
+	}
+	#heading{
+		text-align: center;
+		color: #001966;
+		margin-bottom: 40px;
+	}
+	.register, .login{
+		background-color: #e6e6e6;
+		padding: 40px;
+		width: 40%;
+		margin: auto;
+		h2{
+			font-size: 36px;
+			color: #001966;
+		}
+		#register-heading, #login-heading{
+			text-align: center;
+		}
+		.button-holder{
+			text-align: center;
+			button{
+				margin-top: 20px;
+				width: 50%;
+			}
+		}
+	}
+}
+
+//Styling for Footer
+#footer-wrapper{
+	height: 84px;
+	background-color: #c3c3c3;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	color: white;
+}

@@ -1,0 +1,83 @@
+/* line 4, ../compass/sass/style.scss */
+#total-wrapper {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+/* line 11, ../compass/sass/style.scss */
+#header {
+  background-color: #c3c3c3;
+  height: 84px;
+}
+/* line 14, ../compass/sass/style.scss */
+#header #float-left {
+  float: left;
+  width: 50%;
+}
+/* line 17, ../compass/sass/style.scss */
+#header #float-left button {
+  margin: 20px;
+}
+/* line 21, ../compass/sass/style.scss */
+#header #float-right {
+  float: right;
+  width: 50%;
+  text-align: right;
+}
+/* line 24, ../compass/sass/style.scss */
+#header #float-right button {
+  margin: 20px;
+}
+
+/* line 32, ../compass/sass/style.scss */
+#register-wrapper, #login-wrapper {
+  margin-bottom: 40px;
+  padding: 20px;
+}
+/* line 35, ../compass/sass/style.scss */
+#register-wrapper .error, #login-wrapper .error {
+  color: red;
+}
+/* line 38, ../compass/sass/style.scss */
+#register-wrapper #heading, #login-wrapper #heading {
+  text-align: center;
+  color: #001966;
+  margin-bottom: 40px;
+}
+/* line 43, ../compass/sass/style.scss */
+#register-wrapper .register, #register-wrapper .login, #login-wrapper .register, #login-wrapper .login {
+  background-color: #e6e6e6;
+  padding: 40px;
+  width: 40%;
+  margin: auto;
+}
+/* line 48, ../compass/sass/style.scss */
+#register-wrapper .register h2, #register-wrapper .login h2, #login-wrapper .register h2, #login-wrapper .login h2 {
+  font-size: 36px;
+  color: #001966;
+}
+/* line 52, ../compass/sass/style.scss */
+#register-wrapper .register #register-heading, #register-wrapper .register #login-heading, #register-wrapper .login #register-heading, #register-wrapper .login #login-heading, #login-wrapper .register #register-heading, #login-wrapper .register #login-heading, #login-wrapper .login #register-heading, #login-wrapper .login #login-heading {
+  text-align: center;
+}
+/* line 55, ../compass/sass/style.scss */
+#register-wrapper .register .button-holder, #register-wrapper .login .button-holder, #login-wrapper .register .button-holder, #login-wrapper .login .button-holder {
+  text-align: center;
+}
+/* line 57, ../compass/sass/style.scss */
+#register-wrapper .register .button-holder button, #register-wrapper .login .button-holder button, #login-wrapper .register .button-holder button, #login-wrapper .login .button-holder button {
+  margin-top: 20px;
+  width: 50%;
+}
+
+/* line 66, ../compass/sass/style.scss */
+#footer-wrapper {
+  height: 84px;
+  background-color: #c3c3c3;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
