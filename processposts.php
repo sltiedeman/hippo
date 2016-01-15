@@ -7,7 +7,7 @@
 				'uid'=> $_SESSION['uid'],
 				'content'=> $content
 			));
-			header('Location: index.php?success=yes');
+			header('Location: index.php?success=yes#make-post');
 			exit;
 		}catch(MeekroDBException $e){
 			header('Location: /posts.php?error=yes');

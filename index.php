@@ -42,15 +42,7 @@
 						print '<a href="login.php"><button class="btn btn-success btn-lg">Login</button></a></div>';
 					}
 				?>
-				<!-- <div id="make-post">
-					<form action="processposts.php" method="post">
-						<div class="form-group">
-							<label for="new-post">POST</label>
-							<textarea class="form-control" rows="5" name="newPost" id="new-post"></textarea>
-						</div>
-						<button type="submit" class="btn btn-primary">Post it!</button>
-					</form>
-				</div> -->
+		
 				<?php
 
 					if($success){
