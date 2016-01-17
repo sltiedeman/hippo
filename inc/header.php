@@ -5,7 +5,7 @@
 	<div id="float-right">
 		<?php
 			if($_SESSION['uid']){
-				print 'Welcome Back, ' . $_SESSION['name'] . '<a href="logout.php"><button class="btn btn-success btn-lg">Logout</button></a>';
+				print 'Welcome Back, ' . $_SESSION['name'] . ' <a href="follow.php"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a><a href="logout.php"><button class="btn btn-success btn-lg">Logout</button></a>';
 			}elseif($_SESSION['page'] == 'login'){
 				print 'Not already a user? ' . '<a href="register.php"><button class="btn btn-warning btn-lg">Register</button></a>';
 			}elseif($_SESSION['page'] == 'register'){

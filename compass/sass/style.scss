@@ -62,7 +62,7 @@ button{
 		}
 	}
 	#posts{
-		width: 50%;
+		width: 60%;
 		margin: auto;
 		#posts-left{
 			float: left;
@@ -100,6 +100,18 @@ button{
 			margin: 20px;
 			padding: 20px;
 			color: #009999;
+			#left{
+				float: left;
+				width: 50%;
+			}
+			#right{
+				float: left;
+				width: 50%;
+				text-align: right;
+				.to-follow{
+					font-style: italic;
+				}
+			}
 		}
 	}
 }
@@ -141,6 +153,15 @@ button{
 //Styling for posts
 #posts-wrapper{
 	margin-top: 40px;
+}
+
+//Styling for following Page
+.following-page{
+	font-family: 'Josefin Sans', sans-serif;
+	color: #001966;
+	h3{
+		font-style: italic;
+	}
 }
 
 //Styling for Footer

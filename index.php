@@ -50,16 +50,38 @@
 					}
 				?>
 				<?php 
-					$result = DB::query("SELECT * FROM posts ORDER BY timestamp desc limit 30");
+					$result = DB::query(
+						"SELECT posts.content, posts.timestamp, users.username, posts.uid FROM posts 
+							LEFT JOIN users ON posts.uid=users.uid
+							ORDER BY timestamp desc limit 30");
 					foreach ($result as $row){
 						$content = $row['content'];
+						$user = $row['username'];
+						$uid = $row['uid'];
 						date_default_timezone_set('UTC');
 						$time = $row['timestamp'];
 						$time = strtotime($time);
-						print "<div class='post'><h4>" . $content . '</h4><p>Posted: ' . date('m-d-Y, g:i a', $time) . '</p>' . "</div>";	
-					}
+						$follow = DB::query(
+							"SELECT following.user_id, following.user_id_to_follow FROM following 
+							WHERE user_id_to_follow=%i AND user_id=%s", $uid, $_SESSION['uid']
+						);
+						print "<div class='post'><h4>" . $content . '</h4><div id="left">
+							<p>Posted: ' . date('m-d-Y, g:i a', $time) . '</p></br></div><div id="right">'
+							 . $user . '</br></br>';
+						if($uid != $_SESSION['uid']){
+							if($follow){
+								print "<p class='to-follow following' uid=".$uid.">Unfollow</p></div></div>";	
+							}else{
+								print "<p class='to-follow not-following' uid=".$uid.">Follow</p></div></div>";
+							}
+						}else{
+							print "<p style='font-style:italic'>You</p></div></div>";
+						}
 
+					}
 				?>
+				<a href="follow.php"><button class="btn btn-primary">Following</button></a>
+
 			</div>
 		</div>
 
