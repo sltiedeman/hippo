@@ -22,6 +22,16 @@
 			<div id="hero-image">
 				<h1 id="hero-text">Save the Hippo</h1>
 			</div>
+			<div id="mission">
+				<h2>Our Mission</h2>
+				<p>
+				We are a society dedicated to saving the hippo. We have been active for over 3 years and embrace
+				every chance we get to save one of these majestic creatures. This site is a means for you to share your 
+				hippo saving activity with other hippo lovers. Please sign up and tell us a bit about the last hippo
+				you saved.
+				</p>
+			</div>
+
 			<div id="posts">
 				<div id="posts-left">
 					<h2>Recent Posts</h2>
@@ -53,7 +63,7 @@
 					$result = DB::query(
 						"SELECT posts.content, posts.timestamp, users.username, posts.uid FROM posts 
 							LEFT JOIN users ON posts.uid=users.uid
-							ORDER BY timestamp desc limit 30");
+							ORDER BY timestamp desc limit 20");
 					foreach ($result as $row){
 						$content = $row['content'];
 						$user = $row['username'];
@@ -80,7 +90,43 @@
 
 					}
 				?>
-				<a href="follow.php"><button class="btn btn-primary">Following</button></a>
+				<!-- <a href="follow.php"><button class="btn btn-primary">Following</button></a> -->
+				<div id="people-you-follow">
+					<h2>Posts From Hippo Lovers You Love</h2>
+					<?php 
+
+
+					$result = DB::query(
+
+						"SELECT * FROM posts
+						-- INNER JOIN users
+						INNER JOIN following 
+						ON following.user_id_to_follow=posts.uid 
+						INNER JOIN users
+						ON users.uid = posts.uid
+						WHERE user_id=%s", $_SESSION['uid']
+					);
+						
+					if($result){
+						foreach ($result as $row){
+							$content = $row['content'];
+							$uid = $row['uid'];
+							date_default_timezone_set('UTC');
+							$time = $row['timestamp'];
+							$time = strtotime($time);
+							$user = $row['username'];
+
+							print "<div class='post'><h4>" . $content . '</h4><div id="left">
+								<p>Posted: ' . date('m-d-Y, g:i a', $time) . '</p></br></div><div id="right">' . $user . '
+								</div></div>';
+						}
+					}else{
+						print "<h3 style='font-style:italic'>You are not currently following anyone</h3>";
+					}
+				?>
+
+
+				</div>
 
 			</div>
 		</div>

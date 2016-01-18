@@ -28,7 +28,7 @@
 						print '<div class="user">'.$user['username'].'</div>';
 						print '<div class="follow-user">
 						 <button class="btn btn-danger follow unfollow-button" uid='.$user['uid'].'>Unfollow</button>';
-						print '</div>';
+						print '</div></div>';
 						$notFollowing = false;
 					}
 					// else{				
