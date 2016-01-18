@@ -78,14 +78,18 @@
 						print "<div class='post'><h4>" . $content . '</h4><div id="left">
 							<p>Posted: ' . date('m-d-Y, g:i a', $time) . '</p></br></div><div id="right">'
 							 . $user . '</br></br>';
-						if($uid != $_SESSION['uid']){
-							if($follow){
-								print "<p class='to-follow following' uid=".$uid.">Unfollow</p></div></div>";	
+						if($_SESSION['uid']){
+							if($uid != $_SESSION['uid']){
+								if($follow){
+									print "<p class='to-follow following' uid=".$uid.">Unfollow</p></div></div>";	
+								}else{
+									print "<p class='to-follow not-following' uid=".$uid.">Follow</p></div></div>";
+								}
 							}else{
-								print "<p class='to-follow not-following' uid=".$uid.">Follow</p></div></div>";
+								print "<p style='font-style:italic'>You</p></div></div>";
 							}
 						}else{
-							print "<p style='font-style:italic'>You</p></div></div>";
+							print "</div></div>";
 						}
 
 					}
@@ -99,7 +103,6 @@
 					$result = DB::query(
 
 						"SELECT * FROM posts
-						-- INNER JOIN users
 						INNER JOIN following 
 						ON following.user_id_to_follow=posts.uid 
 						INNER JOIN users
