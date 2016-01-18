@@ -15,6 +15,7 @@ $(document).ready(function(){
 		}
 	});
 
+	//For unfollowing a user from follow.php page
 	$('.follow').click(function(){
 		var innerText = $(this).text();
 		if(innerText == 'Follow'){
@@ -52,7 +53,7 @@ $(document).ready(function(){
 		}
 	});
 
-
+	//For following or unfollowing a user on index.php page
 	$('.to-follow').click(function(){
 		var innerText = $(this).text();
 		if(innerText == 'Follow'){	
@@ -97,5 +98,47 @@ $(document).ready(function(){
 
 		}
 	});
+
+	//Building in voting functionality
+	$('.vote').click(function(){
+		var postid = $(this).attr('postid');
+		// var arrowToChange = $("[postid="+postid+"]");
+		if($(this).hasClass('up-vote')){
+			var voteValue = 1;
+		}else if ($(this).hasClass('down-vote')){
+			var voteValue = -1;
+		}else{
+			var voteValue = 0;
+		}
+
+		var value = Number($('.count').html());
+		value += voteValue;
+
+
+		if(voteValue != 0){
+			$.ajax({
+				url: "processvote.php",
+				type: "post",
+				data: {postid: postid, voteValue: voteValue, value:value},
+				success: function(result){
+					console.log(result);
+					$(".count").each(function(){
+						if($(this).attr('postid') == postid){
+							var value = Number($(this).html());
+							if(result=='add-one'){
+								value++;
+								$(this).text(value);
+							}else if(result=='subtract-one'){
+								value--;
+								$(this).text(value);
+							}
+						}
+					});
+				
+				}
+			});
+		}
+
+	})
 
 });

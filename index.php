@@ -61,13 +61,15 @@
 				?>
 				<?php 
 					$result = DB::query(
-						"SELECT posts.content, posts.timestamp, users.username, posts.uid FROM posts 
+						"SELECT posts.content, posts.timestamp, users.username, posts.uid, posts.id FROM posts 
 							LEFT JOIN users ON posts.uid=users.uid
 							ORDER BY timestamp desc limit 20");
 					foreach ($result as $row){
+						$count = 0;
 						$content = $row['content'];
 						$user = $row['username'];
 						$uid = $row['uid'];
+						$postid = $row['id'];
 						date_default_timezone_set('UTC');
 						$time = $row['timestamp'];
 						$time = strtotime($time);
@@ -75,18 +77,32 @@
 							"SELECT following.user_id, following.user_id_to_follow FROM following 
 							WHERE user_id_to_follow=%i AND user_id=%s", $uid, $_SESSION['uid']
 						);
-						print "<div class='post'><h4>" . $content . '</h4><div id="left">
-							<p>Posted: ' . date('m-d-Y, g:i a', $time) . '</p></br></div><div id="right">'
-							 . $user . '</br></br>';
+						//code from Rob for voting
+						$vote_results = DB::query("SELECT * FROM posts_votes WHERE post_id=%i", $postid);
+						if(!empty($vote_results)){
+							foreach ($vote_results as $vote){
+								$count = $count + $vote['vote'];
+							}
+						 }
+							print "<div class='post'><div id='left'><h4>" . $content . '</h4>
+							<p>Posted: ' . date('m-d-Y, g:i a', $time) . ' by '.$user.'</p></br></div><div id="right"><div class="arrows">
+							<span class="glyphicon glyphicon-thumbs-up up-vote vote" aria-hidden="true" has-voted="'.$hasVoted.'" 
+							postid="'.$postid.'"vote-value="1">
+							</span><p class="count" postid="'.$postid.'">'.$count.'</p>
+							<span class="glyphicon glyphicon-thumbs-down down-vote vote" aria-hidden="true" has-voted="'.$hasVoted.'" 
+							postid="'.$postid.'"vote-value="-1">
+							</div><div class="text">'
+							 . $user . '</div></br></br>';
+		
 						if($_SESSION['uid']){
 							if($uid != $_SESSION['uid']){
 								if($follow){
-									print "<p class='to-follow following' uid=".$uid.">Unfollow</p></div></div>";	
+									print '<div class="text"><p class="to-follow following" uid='.$uid.'>Unfollow</p></div></div></div>';	
 								}else{
-									print "<p class='to-follow not-following' uid=".$uid.">Follow</p></div></div>";
+									print '<div class="text"><p class="to-follow not-following" uid='.$uid.'>Follow</p></div></div></div>';
 								}
 							}else{
-								print "<p style='font-style:italic'>You</p></div></div>";
+								print "<div class='text'><p style='font-style:italic'>You</p></div></div></div>";
 							}
 						}else{
 							print "</div></div>";
@@ -94,7 +110,6 @@
 
 					}
 				?>
-				<!-- <a href="follow.php"><button class="btn btn-primary">Following</button></a> -->
 				<div id="people-you-follow">
 					<h2>Posts From Hippo Lovers You Love</h2>
 					<?php 
@@ -107,7 +122,7 @@
 						ON following.user_id_to_follow=posts.uid 
 						INNER JOIN users
 						ON users.uid = posts.uid
-						WHERE user_id=%s", $_SESSION['uid']
+						WHERE user_id=%s ORDER by timestamp desc limit 20", $_SESSION['uid']
 					);
 						
 					if($result){

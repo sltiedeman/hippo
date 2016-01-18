@@ -111,15 +111,27 @@ button{
 			color: #009999;
 			#left{
 				float: left;
-				width: 50%;
+				width: 70%;
 			}
 			#right{
 				float: left;
-				width: 50%;
+				width: 30%;
 				text-align: right;
 				.to-follow{
 					font-style: italic;
 				}
+				.arrows{
+					float: left;
+					text-align: center;
+					width: 50%;
+					font-size: 26px;
+				}
+				.text{
+					float: left;
+					text-align: right;
+					width: 50%;
+				}
+
 			}
 		}
 	}
