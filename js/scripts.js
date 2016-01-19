@@ -134,6 +134,17 @@ $(document).ready(function(){
 							}
 						}
 					});
+					$(".error").each(function(){
+						if($(this).attr('postid') == postid){
+							if(result =='no-more-up-votes'){
+								$(this).text("You can not up-vote more than once");
+							}else if(result =='no-more-down-votes'){
+								$(this).text("You can not down-vote more than once");
+							}else{
+								$(this).text("");
+							}
+						}
+					})
 				
 				}
 			});

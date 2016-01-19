@@ -25,8 +25,10 @@
 		print "add-one";
 	}else if(($voteCount > -1)&&($_POST['voteValue']==-1)){
 		print "subtract-one";
-	}else{
-		print "already-voted";
+	}else if(($voteCount == 1)&&($_POST['voteValue']==1)){
+		print "no-more-up-votes";
+	}else if(($voteCount == -1)&&($_POST['voteValue']==-1)){
+		print "no-more-down-votes";
 	}
 
 

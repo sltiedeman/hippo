@@ -96,6 +96,7 @@
 							}else{
 								print "<div class='text'><p style='font-style:italic'>You</p></div>";
 							}
+							print '<div class="error" postid="'.$postid.'"></div>';
 						}
 						print '</div>';
 						print '<div id="right"><div class="arrows">
