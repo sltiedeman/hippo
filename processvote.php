@@ -6,9 +6,7 @@
 	foreach ($results as $row){
 		$voteCount += $row['vote'];
 	}
-	// if($counter > 0){
-	// 	print "already voted";
-	// }else{
+
 	if((($voteCount < 1)&&($_POST['voteValue']==1)) || (($voteCount > -1)&&($_POST['voteValue']==-1))){
 		try{
 			DB::insert('posts_votes', array(
