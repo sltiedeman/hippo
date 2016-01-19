@@ -84,29 +84,25 @@
 								$count = $count + $vote['vote'];
 							}
 						 }
-							print "<div class='post'><div id='left'><h4>" . $content . '</h4>
-							<p>Posted: ' . date('m-d-Y, g:i a', $time) . ' by '.$user.'</p></br></div><div id="right"><div class="arrows">
-							<span class="glyphicon glyphicon-thumbs-up up-vote vote" aria-hidden="true" has-voted="'.$hasVoted.'" 
-							postid="'.$postid.'"vote-value="1">
-							</span><p class="count" postid="'.$postid.'">'.$count.'</p>
-							<span class="glyphicon glyphicon-thumbs-down down-vote vote" aria-hidden="true" has-voted="'.$hasVoted.'" 
-							postid="'.$postid.'"vote-value="-1">
-							</div><div class="text">'
-							 . $user . '</div></br></br>';
-		
+						print "<div class='post'><div id='left'><h4>" . $content . '</h4>
+						<p>Posted: ' . date('m-d-Y, g:i a', $time) . ' by '.$user.'</p></br>';
 						if($_SESSION['uid']){
 							if($uid != $_SESSION['uid']){
 								if($follow){
-									print '<div class="text"><p class="to-follow following" uid='.$uid.'>Unfollow</p></div></div></div>';	
+									print '<div class="text"><p class="to-follow following" uid='.$uid.'>Unfollow</p></div>';	
 								}else{
-									print '<div class="text"><p class="to-follow not-following" uid='.$uid.'>Follow</p></div></div></div>';
+									print '<div class="text"><p class="to-follow not-following" uid='.$uid.'>Follow</p></div>';
 								}
 							}else{
-								print "<div class='text'><p style='font-style:italic'>You</p></div></div></div>";
+								print "<div class='text'><p style='font-style:italic'>You</p></div>";
 							}
-						}else{
-							print "</div></div>";
 						}
+						print '</div>';
+						print '<div id="right"><div class="arrows">
+						<span class="glyphicon glyphicon-thumbs-up up-vote vote" aria-hidden="true" postid="'.$postid.'"vote-value="1">
+						</span><p class="count" postid="'.$postid.'">'.$count.'</p>
+						<span class="glyphicon glyphicon-thumbs-down down-vote vote" aria-hidden="true" postid="'.$postid.'"vote-value="-1">
+						</div></div></div>';
 
 					}
 				?>
