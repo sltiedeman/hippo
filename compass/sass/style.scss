@@ -1,6 +1,59 @@
 @import "vars";
 @import "base";
 
+//Styling for intro splash page.  Copied from other projects
+#intro-page-wrapper{
+	text-align: center;
+	overflow: scroll;
+	position: absolute;
+	width: 100%;
+	background-color: rgba(64,64,64,0.95);
+	top: 0px;
+	left: 0px;
+	z-index: 1000000000;
+	color: #f2f2f2;
+}
+	
+#intro-page-wrapper h1{
+	font-family: 'Varela Round', sans-serif;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+}
+
+#intro-page-wrapper p{
+	line-height: 125%;
+	width: 60%;
+	margin: auto;
+	text-align: justify;
+	font-size: 16px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+}
+
+#intro-page-wrapper button{
+	font-family: 'Varela Round', sans-serif;
+	text-transform: uppercase;
+	text-align: center;
+	width: 225px;
+	height: 55px;
+	padding: 15px;
+	color: white;
+	background-color: orange;
+	margin: auto;
+	font-size: 18px;
+	margin-top: 30px;
+	border: 0px;
+	letter-spacing: 3px;
+}
+
+#intro-page-wrapper button:hover{
+	cursor: pointer;
+	background-color: #ffc04d;
+}
+
 
 
 #total-wrapper{
