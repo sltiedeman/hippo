@@ -136,7 +136,11 @@
 								</div></div>';
 						}
 					}else{
-						print "<h3 style='font-style:italic'>You are not currently following anyone</h3>";
+						if($_SESSION['uid']){
+							print "<p style='font-style:italic; font-size: 16px'>You are not currently following anyone</p>";
+						}else{
+							print "<p style='font-style:italic; font-size: 16px'>Sign up so you can follow others!</p>";
+						}
 					}
 				?>
 
